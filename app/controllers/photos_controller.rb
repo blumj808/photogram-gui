@@ -53,5 +53,19 @@ end
  # render({:template => "photo_templates/create" })
  
  redirect_to("/photos/" + a_new_photo.id.to_s)
+
 end
+
+def update
+
+the_id = params.fetch("moidfy_id")
+matching_photos = Photo.where({ :id => the_id})
+
+the_photo = matching_photos.at(0)
+
+
+  render({:template => "photo_templates/update" })
+ 
+end
+
 end

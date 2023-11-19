@@ -38,7 +38,7 @@ end
 
   input_caption = params.fetch("query_caption")
 
-  inputs_owner_id = params.fetch("query_owner_id")
+  input_owner_id = params.fetch("query_owner_id")
 
   a_new_photo = Photo.new
 

@@ -27,6 +27,8 @@ end
 
   the_photo.destroy
 
-    render({:template => "photo_templates/bai" })
+    #render({:template => "photo_templates/bai" })
+
+    redirect_to("/photos")
   end
 end

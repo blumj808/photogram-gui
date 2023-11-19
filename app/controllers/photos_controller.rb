@@ -31,4 +31,10 @@ end
 
     redirect_to("/photos")
   end
+
+  def create
+
+
+    render({:template => "photo_templates/create" })
+  end
 end

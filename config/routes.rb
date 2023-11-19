@@ -4,15 +4,14 @@ Rails.application.routes.draw do
 
   get("/users/:path_username", {:controller => "users", :action => "show" })
 
-  get("/photos", {controller => "photos", :action => "index"})
+  get("/photos", {:controller => "photos", :action => "index"})
 
-  get("/photos/:path_id", {controller => "photos", :action => "show"})
+  get("/photos/:path_id", {:controller => "photos", :action => "show"})
 
-  get("/delete_photo/:path_id", {controller => "photos", :action => "bai"})
+  get("/delete_photo/:path_id", {:controller => "photos", :action => "bai"})
 
-  get("/insert_photo", {controller => "photos", :action => "create"})
+  get("/insert_photo", {:controller => "photos", :action => "create"})
 
-  get("/update_photo/:modify_id", {controller => "photos", :action => "update"})
-
+  get("/update_photo/:modify_id", {:controller => "photos", :action => "update"})
 
 end

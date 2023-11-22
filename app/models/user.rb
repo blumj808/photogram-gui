@@ -16,7 +16,7 @@ class User < ApplicationRecord
     :presence => true,
     :uniqueness => { :case_sensitive => false },
   })
-
+#will be available throughout entire application; represent table in DB
   def comments
     my_id = self.id
 

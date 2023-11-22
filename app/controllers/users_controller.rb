@@ -1,9 +1,16 @@
 class UsersController < ApplicationController
   def index
     matching_users = User.all
-    @list_of_users =  matching_users.order({ :username => :asc})
+    #.all goes to dB and retrieve all rows to user table
 
+    @list_of_users =  matching_users.order({ :username => :asc})
+    #first value is what column; second order
+    
+
+#backend logic to provide some data to send to view template
     render({:template => "users_templates/index"})
+    #where info for users happens in HTML
+    #need a persistent space to store data (database)
   end
 
   def show
@@ -20,8 +27,7 @@ class UsersController < ApplicationController
     @a_new_user.username = params.fetch("input_username")
     @a_new_user.save
   
-    @the_user = User.where({:username => @a_new_user})
     
-    render({ :template => "users_templates/add_user" })
+    redirect_to("/users/#{@a_new_user.username}")
   end
 end

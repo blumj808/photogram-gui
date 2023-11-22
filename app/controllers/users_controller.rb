@@ -32,15 +32,24 @@ class UsersController < ApplicationController
   end
 
   def update
+    current_username = params.fetch("modify_user")
+    new_username = params.fetch("input_username")
 
-    input_username = params.fetch("modify_user")
-    matching_usernames = User.where({:username => input_username})
-   
-   @the_user = matching_usernames.first
+    matching_usernames = User.where({:username => current_username})
 
-    #render({:template => "photo_templates/update" })
+    if matching_usernames.empty?
     
-    redirect_to("/users/#{@input_username}")
-     
+      @the_user = User.new
+      @the_user.username = new_username
+      @the_user.save
+
+    else
+      @the_user = matching_usernames.at(0)
+      @the_user.username = new_username
+      @the_user.save
     end
+
+    redirect_to("/users/#{@the_user.username}")
+end
+ 
 end

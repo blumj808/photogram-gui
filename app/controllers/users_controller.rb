@@ -16,25 +16,12 @@ class UsersController < ApplicationController
    end
 
    def add
-
-    input_user = params.fetch("input_username")
-
-    input_user_caption = params.fetch("query_caption")
-
-    input_user_image = params.fetch("query_caption")
+    @a_new_user = User.new
+    @a_new_user.username = params.fetch("input_username")
+    @a_new_user.save
   
-    input_user_id = params.fetch("query_owner_id")
-  
-    a_new_user = User.new
-  
-    a_new_user.image = input_user_image
-  
-    a_new_photo.caption = input_user_caption
-  
-    a_new_photo.owner_id = input_user_id
-  
-    a_new_user.save
-  
-   render({:template => "users_templates/add_user" })
-end
+    @the_user = User.where({:username => @a_new_user})
+    
+    render({ :template => "users_templates/add_user" })
+  end
 end

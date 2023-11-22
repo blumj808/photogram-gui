@@ -14,8 +14,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    input_username = params.fetch("path_username")
-    matching_usernames = User.where({:username => input_username})
+    @input_username = params.fetch("path_username")
+    matching_usernames = User.where({:username => @input_username})
    
    @the_user = matching_usernames.first
 

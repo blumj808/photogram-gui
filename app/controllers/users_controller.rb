@@ -14,8 +14,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @input_username = params.fetch("path_username")
-    matching_usernames = User.where({:username => @input_username})
+    input_username = params.fetch("path_username")
+    matching_usernames = User.where({:username => input_username})
    
    @the_user = matching_usernames.first
 
@@ -30,4 +30,17 @@ class UsersController < ApplicationController
     
     redirect_to("/users/#{@a_new_user.username}")
   end
+
+  def update
+
+    input_username = params.fetch("modify_user")
+    matching_usernames = User.where({:username => input_username})
+   
+   @the_user = matching_usernames.first
+
+    #render({:template => "photo_templates/update" })
+    
+    redirect_to("/users/#{@input_username}")
+     
+    end
 end

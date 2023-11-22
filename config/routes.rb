@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get("/users/:path_username", {:controller => "users", :action => "show" })
 
-  post("/update_user/:path_username", {:controller => "users", :action => "show" })
+  post("/update_user/:modify_user", {:controller => "users", :action => "update" })
 
   post("/add_user", {:controller => "users", :action => "add" })
 

@@ -1,7 +1,5 @@
 <h1>Photo Details</h1>
 
-
-
 <dl>
   <dt>
     Image
@@ -23,21 +21,21 @@
     Owner
   </dt>
   <dd>
-    <%= @the_photo.poster.username %
+    <%= @the_photo.poster.username %>
   </dd>
 
   <dt>
     Posted
   </dt>
   <dd>
-    <%= @the_photo.created_at %
+    <%= @the_photo.created_at %>
   </dd>
 
   <dt>
     Edit photo
   </dt>
   <dd>
-    <form action="/update_photo/<%= the_photo.id %>" method="post">
+    <form action="/update_photo/<%= @the_photo.id %>" method="post">
       <label for="browser_image">Image</label>
       <input id="browser_image" type="text" name="query_image" placeholder="Enter a URL for the image..." value="<%= @the_photo.image %>">
 

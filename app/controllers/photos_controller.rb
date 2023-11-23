@@ -74,4 +74,25 @@ redirect_to("/photos/#{the_id}")
  
 end
 
+def comment
+
+#the_id = params.fetch("path_id")
+#matching_photos = Photo.where({ :id => the_id})
+
+#the_photo = matching_photos.at(0)
+
+comment_photo = params.fetch("input_photo_id")
+
+matching_photos = Photo.where({ :id => comment_photo})
+
+the_photo = matching_photos.at(0)
+
+comment_author = params.fetch("input_author_id")
+
+comment = params.fetch("input_comment")
+
+the_photo.save
+
+redirect_to("/photos/#{comment_photo}")
 end
+end 

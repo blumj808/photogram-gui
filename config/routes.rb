@@ -19,6 +19,6 @@ Rails.application.routes.draw do
 
  post("/insert_photo", {:controller => "photos", :action => "index"})
 
-  get("/update_photo/:modify_id", {:controller => "photos", :action => "update"})
+post("/update_photo/:modify_id", {:controller => "photos", :action => "update"})
 
 end

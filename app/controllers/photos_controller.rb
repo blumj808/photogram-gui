@@ -58,7 +58,7 @@ end
 
 def update
 
-the_id = params.fetch("moidfy_id")
+the_id = params.fetch("modify_id")
 matching_photos = Photo.where({ :id => the_id})
 
 the_photo = matching_photos.at(0)
@@ -66,7 +66,6 @@ the_photo = matching_photos.at(0)
 input_image = params.fetch("query_image")
 
 input_caption = params.fetch("query_caption")
-
 
 the_photo.image = input_image
 
@@ -76,7 +75,7 @@ the_photo.save
 
 #render({:template => "photo_templates/update" })
 
-redirect_to("/photos/" + the_photo.id_to_s)
+redirect_to("/photos/#{the_id}")
  
 end
 

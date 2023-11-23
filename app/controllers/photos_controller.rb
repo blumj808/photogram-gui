@@ -50,9 +50,7 @@ end
 
   a_new_photo.save
 
- render({:template => "photo_templates/insert_photo" })
- 
- #redirect_to("/photos/" + a_new_photo.id.to_s)
+redirect_to("/photos/#{a_new_photo.id}")
 
 end
 
